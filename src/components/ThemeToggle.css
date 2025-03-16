@@ -1,0 +1,12 @@
+.theme-toggle {
+    white-space: nowrap;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background: none;
+    color: var(--text-color);
+    display: inline-flex;
+    align-items: center;
+  }
+  
