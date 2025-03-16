@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './pages/Home.jsx';
-import Blog from './pages/Blog.jsx';
+import Blogs from './pages/Blogs.jsx';
 import BlogPost from './pages/BlogPost.jsx';
 import About from './pages/About.jsx';
 import Photos from './pages/Photos.jsx';
@@ -23,7 +23,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/photos" element={<Photos />} />
               <Route path="/photos/:id" element={<PhotoPage />} />
-              <Route path="/blog" element={<Blog />} />
+              <Route path="/blog" element={<Blogs />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/about" element={<About />} />

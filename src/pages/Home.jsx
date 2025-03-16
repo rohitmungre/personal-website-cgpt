@@ -1,28 +1,45 @@
 import React from 'react';
 import './Home.css';
 
+const paragraphs = [
+  "I am a quantitative software developer based in London, United Kingdom.",
+  "Currently I work at Onyx Capital Group, where I can be seen programming and sometimes crunching numbers.",
+  "I am a quantitative software developer based in London, United Kingdom.",
+  "I am a quantitative software developer based in London, United Kingdom.",
+  "I am a quantitative software developer based in London, United Kingdom.",
+  "I am a quantitative software developer based in London, United Kingdom.",
+  "Previously developed quantitative analytical/trading systems for an investment bank ",
+  "My interests span technology, trading strategies, music, art, and cooking.",
+  "I reached my peak weight (117Kgs) in Q3 2023, after which I have put conscious efforts into my health and have lost 31Kgs so far.",
+  "Travelled to 17 countries so far 🌍 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇮🇹 🇺🇸 🇯🇵 🇦🇺 🇨🇦 🇳🇱 🇧🇷 🇨🇭 🇸🇪 🇦🇹 🇳🇴 🇦🇷 🇸🇬.",
+  "Recently started to learn Rust and have been hooked onto it.",
+  "My home setup: GitHub",
+  "Social: Instagram | Facebook | GitHub | Twitter | Pinterest | Medium",
+];
+
 function Home() {
+  const splitIndex = Math.floor(paragraphs.length / 3); // Adjust split dynamically for mirrored L shape
+  const textRight = paragraphs.slice(0, splitIndex + 1);
+  const textBelow = paragraphs.slice(splitIndex + 1);
+
   return (
     <div className="home-container">
       <div className="home-image">
         <img src="/images/dp.jpg" alt="Profile" className="profile-pic" />
       </div>
       <div className="home-content">
-        <h3>Hi there!</h3>
-        <p>I am a quantitative software developer based in London, United Kingdom.</p>
-        <p>My interests span technology, trading strategies, music, art, and cooking.</p>
-        <p>I reached my peak weight (117Kgs) in Q3 2023, after which I have put conscious efforts into my health and have lost 31Kgs so far.</p>
-        <p>Travelled to 17 countries so far 🌍 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇮🇹 🇺🇸 🇯🇵 🇦🇺 🇨🇦 🇳🇱 🇧🇷 🇨🇭 🇸🇪 🇦🇹 🇳🇴 🇦🇷 🇸🇬</p>
-        <p>Recently started to learn Rust and have been hooked onto it.</p>
-        <p>My home setup: <a href="https://github.com/yourusername" target="_blank">GitHub</a></p>
-        <p>Social: 
-          <a href="https://instagram.com/yourhandle" target="_blank">Instagram</a> | 
-          <a href="https://facebook.com/yourhandle" target="_blank">Facebook</a> | 
-          <a href="https://github.com/yourhandle" target="_blank">GitHub</a> | 
-          <a href="https://twitter.com/yourhandle" target="_blank">Twitter</a> | 
-          <a href="https://pinterest.com/yourhandle" target="_blank">Pinterest</a> | 
-          <a href="https://medium.com/@yourhandle" target="_blank">Medium</a>
-        </p>
+        <div className="text-wrapper">
+          <div className="text-right">
+            {textRight.map((text, index) => (
+              <p key={index}>{text}</p>
+            ))}
+          </div>
+          <div className="text-below">
+            {textBelow.map((text, index) => (
+              <p key={index + splitIndex + 1}>{text}</p>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
