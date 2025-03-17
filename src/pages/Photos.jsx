@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
-const photos = [
-  { id: 1, url: "photo1.jpg", caption: "Photo 1" },
-  { id: 2, url: "photo2.jpg", caption: "Photo 2" },
-  { id: 3, url: "photo3.jpg", caption: "Photo 3" }
-];
+import './Photos.css';
 
 function Photos() {
+  const [photos, setPhotos] = useState([]);
+
+  useEffect(() => {
+    // Manually listing images (since frontend cannot auto-detect public/ files)
+    const images = [
+      { filename: "dp.jpg", title: "Sunset Over the Beach" },
+      { filename: "dp.jpg", title: "Mountain Adventure" },
+      { filename: "dp.jpg", title: "City Skyline at Night" },
+      { filename: "dp.jpg", title: "Lush Green Forest" },
+      { filename: "dp.jpg", title: "Snowy Mountains" },
+      { filename: "dp.jpg", title: "Calm Lake Reflection" },
+      { filename: "dp.jpg", title: "Autumn Leaves" },
+      { filename: "dp.jpg", title: "Desert Dunes" },
+      { filename: "dp.jpg", title: "Ocean Waves" }
+    ];
+
+    setPhotos(images);
+  }, []);
+
   return (
-    <div>
-      <h1>Photos</h1>
+    <div className="photos-container">
       <div className="photo-grid">
-        {photos.map(photo => (
-          <Link key={photo.id} to={`/photos/${photo.id}`}>
-            <img src={photo.url} alt={photo.caption} />
-          </Link>
+        {photos.map((photo, index) => (
+          <div key={index} className="photo-item">
+            <Link to={`/photo/${photo.filename}`}>
+              <img src={`/images/${photo.filename}`} alt={photo.title} />
+            </Link>
+          </div>
         ))}
       </div>
     </div>

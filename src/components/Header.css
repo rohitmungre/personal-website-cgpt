@@ -1,6 +1,6 @@
 .header {
     width: 100vw;
-    background-color: var(--background);
+    backdrop-filter: none;
     padding: 10px 20px;
     display: flex;
     justify-content: center;
@@ -9,6 +9,7 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   .nav-container {
