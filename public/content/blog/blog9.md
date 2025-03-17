@@ -1,7 +1,7 @@
 ---
 
 title: "Traveling to 17 Countries: My Experiences"
-date: "2025-02-28"
+date: "2024-02-28"
 tags: [Travel, Experiences, Lifestyle]
 ---
 

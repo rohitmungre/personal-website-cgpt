@@ -1,7 +1,7 @@
 ---
 
 title: "How I Lost 31kg in a Year"
-date: "2025-03-02"
+date: "2024-06-02"
 tags: [Health, Lifestyle, Fitness]
 ---
 

@@ -1,7 +1,7 @@
 ---
 
 title: "The Role of AI in Financial Markets"
-date: "2025-02-25"
+date: "2024-02-25"
 tags: [AI, Finance, Trading]
 ---
 

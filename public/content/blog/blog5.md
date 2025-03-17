@@ -1,7 +1,7 @@
 ---
 
 title: "Introduction to Rust Programming"
-date: "2025-03-10"
+date: "2025-02-10"
 tags: [Rust, Programming, Systems]
 ---
 

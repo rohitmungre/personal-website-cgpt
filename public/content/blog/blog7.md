@@ -1,7 +1,7 @@
 ---
 
 title: "Quantitative Trading: A Beginner’s Guide"
-date: "2025-03-05"
+date: "2024-10-05"
 tags: [Finance, Trading, Quant]
 ---
 

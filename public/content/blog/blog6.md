@@ -1,7 +1,7 @@
 ---
 
 title: "Building a Personal Website with React & Vite"
-date: "2025-03-08"
+date: "2025-01-08"
 tags: [React, Vite, Web Development]
 ---
 

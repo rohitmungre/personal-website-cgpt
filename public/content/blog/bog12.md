@@ -1,7 +1,7 @@
 ---
 
 title: "Getting Started with Pinterest for Inspiration"
-date: "2025-02-15"
+date: "2023-02-15"
 tags: [Pinterest, Creativity, Social Media]
 ---
 

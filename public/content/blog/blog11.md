@@ -1,7 +1,7 @@
 ---
 
 title: "Exploring Music and Its Influence on Productivity"
-date: "2025-02-20"
+date: "2023-02-20"
 tags: [Music, Productivity, Lifestyle]
 ---
 
