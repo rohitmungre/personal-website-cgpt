@@ -7,15 +7,21 @@ function PhotoPage() {
 
   // Dummy photo descriptions (can be expanded later)
   const photoDescriptions = {
-    "dp.jpg": "A stunning sunset over the beach with golden skies.",
-    "photo2.jpg": "A breathtaking mountain adventure in the Alps.",
-    "photo3.jpg": "A stunning city skyline under a starry night.",
-    "photo4.jpg": "Lush green forest filled with wildlife and nature sounds.",
-    "photo5.jpg": "Snow-covered mountains under a crisp blue sky.",
-    "photo6.jpg": "A peaceful lake reflecting the surrounding mountains.",
-    "photo7.jpg": "Autumn leaves covering the ground with vibrant colors.",
-    "photo8.jpg": "Golden desert dunes stretching as far as the eye can see.",
-    "photo9.jpg": "Powerful ocean waves crashing against the shore."
+    "a4.jpg": "A stunning sunset over the beach with golden skies.",
+    "a3.jpg": "A stunning sunset over the beach with golden skies.",
+    "a2.jpg": "A stunning sunset over the beach with golden skies.",
+    "a1.jpg": "A stunning sunset over the beach with golden skies.",
+    "11.jpg": "A stunning sunset over the beach with golden skies.",
+    "10.jpg": "A stunning sunset over the beach with golden skies.",
+    "9.jpg": "A stunning sunset over the beach with golden skies.",
+    "8.jpg": "A breathtaking mountain adventure in the Alps.",
+    "7.jpg": "A stunning city skyline under a starry night.",
+    "6.jpg": "Lush green forest filled with wildlife and nature sounds.",
+    "5.jpg": "Snow-covered mountains under a crisp blue sky.",
+    "4.jpg": "A peaceful lake reflecting the surrounding mountains.",
+    "3.jpg": "Autumn leaves covering the ground with vibrant colors.",
+    "2.jpg": "Golden desert dunes stretching as far as the eye can see.",
+    "1.jpg": "Powerful ocean waves crashing against the shore."
   };
 
   return (

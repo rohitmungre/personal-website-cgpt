@@ -8,15 +8,19 @@ function Photos() {
   useEffect(() => {
     // Manually listing images (since frontend cannot auto-detect public/ files)
     const images = [
-      { filename: "dp.jpg", title: "Sunset Over the Beach" },
-      { filename: "dp.jpg", title: "Mountain Adventure" },
-      { filename: "dp.jpg", title: "City Skyline at Night" },
-      { filename: "dp.jpg", title: "Lush Green Forest" },
-      { filename: "dp.jpg", title: "Snowy Mountains" },
-      { filename: "dp.jpg", title: "Calm Lake Reflection" },
-      { filename: "dp.jpg", title: "Autumn Leaves" },
-      { filename: "dp.jpg", title: "Desert Dunes" },
-      { filename: "dp.jpg", title: "Ocean Waves" }
+      { filename: "a1.jpg", title: "Sunset Over the Beach" },
+      { filename: "a2.jpg", title: "Sunset Over the Beach" },
+      { filename: "a3.jpg", title: "Sunset Over the Beach" },
+      { filename: "a4.jpg", title: "Sunset Over the Beach" },
+      { filename: "9.jpg", title: "Sunset Over the Beach" },
+      { filename: "11.jpg", title: "Mountain Adventure" },
+      { filename: "7.jpg", title: "City Skyline at Night" },
+      { filename: "6.jpg", title: "Lush Green Forest" },
+      { filename: "5.jpg", title: "Snowy Mountains" },
+      { filename: "4.jpg", title: "Calm Lake Reflection" },
+      { filename: "3.jpg", title: "Autumn Leaves" },
+      { filename: "10.jpg", title: "Desert Dunes" },
+      { filename: "1.jpg", title: "Ocean Waves" }
     ];
 
     setPhotos(images);
