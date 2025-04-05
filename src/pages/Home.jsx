@@ -43,8 +43,8 @@ const Home = () => {
           <h3 className="welcome-title">Welcome!</h3>
           <p>
             I’m a <strong>quantitative software developer</strong> based in <strong>London, United Kingdom</strong>. 
-            This space is where I share my thoughts and insights through blog posts, covering a mix of topics—including 
-            <strong>technology, trading strategies, music, art, and cooking</strong>.
+            This space is where I share my thoughts and insights through blog posts, covering a mix of topics — including 
+            <strong> technology, trading strategies, music, art, and food</strong>.
           </p>
           <p>
             I have designed and built <strong>quantitative/analytical systems</strong> across various industries, including 

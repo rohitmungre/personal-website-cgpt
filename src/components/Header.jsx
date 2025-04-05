@@ -17,10 +17,10 @@ function Header() {
             <Link to="/photos" className="nav-icon">
                 <FcGallery />
             </Link>            
-            <Link to="/photos" className="nav-icon">
+            <Link to="/travel" className="nav-icon">
                 <FcSportsMode />
             </Link>            
-            <Link to="/photos" className="nav-icon">
+            <Link to="/travel" className="nav-icon">
                 <FcGlobe />
             </Link>            
         </div>
