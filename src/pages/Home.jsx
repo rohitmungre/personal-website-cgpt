@@ -40,11 +40,11 @@ const Home = () => {
 
         {/* Text Content */}
         <div className="text-content">
-          <h3 className="welcome-title">Welcome!</h3>
+          <h3 className="welcome-title">Hi, there!</h3>
           <p>
             I’m a <strong>quantitative software developer</strong> based in <strong>London, United Kingdom</strong>. 
             This space is where I share my thoughts and insights through blog posts, covering a mix of topics — including 
-            <strong> technology, trading strategies, music, art, and food</strong>.
+            <strong> technology, business, investing, music, art, food and life</strong>.
           </p>
           <p>
             I have designed and built <strong>quantitative/analytical systems</strong> across various industries, including 
@@ -55,7 +55,7 @@ const Home = () => {
 
       {/* Blog Post Table */}
       <div className="blog-section">
-        <h3>Recent Blogs</h3>
+        <h3>Articles</h3>
         <table className="blog-table">
           <colgroup>
             <col style={{ width: "85%" }} />

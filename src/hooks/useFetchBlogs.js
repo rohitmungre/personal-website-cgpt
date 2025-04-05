@@ -15,10 +15,9 @@ const useFetchBlogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const files = [
-          "blog1.md", "blog2.md", "blog3.md", "blog4.md", "blog5.md",
-          "blog6.md", "blog7.md", "blog8.md", "blog9.md", "blog10.md"
-        ];
+        // Fetch the manifest file to get the list of .md files
+        const manifestRes = await fetch('/content/blog/manifest.json');
+        const files = await manifestRes.json();
 
         const blogData = await Promise.all(
           files.map(async (file) => {

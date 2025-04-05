@@ -26,7 +26,6 @@ function Header() {
         </div>
         <div className="nav-right">
           <Link to="/blog">Blog</Link>
-          <Link to="/projects">Projects</Link>
           <Link to="/about">About</Link>
           <ThemeToggle />
         </div>
