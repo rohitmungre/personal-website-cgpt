@@ -1,12 +1,24 @@
+/* ThemeToggle.css */
 .theme-toggle {
-    white-space: nowrap;
-    padding: 5px 10px;
-    font-size: 1rem;
-    border: none;
-    cursor: pointer;
-    background: none;
-    color: var(--text-color);
-    display: inline-flex;
-    align-items: center;
-  }
-  
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Styling for light and dark themes */
+body.light {
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  background-color: #121212;
+  color: white;
+}
