@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useFetchBlogs from "../hooks/useFetchBlogs";
 import { Buffer } from 'buffer';
-import matter from 'gray-matter';
 import './Blogs.css'; // Import the CSS file
 
 // Ensure Buffer is available in the browser
@@ -10,55 +10,21 @@ if (!window.Buffer) {
 }
 
 function Blogs() {
-  const [blogs, setBlogs] = useState([]);
-  const [filteredBlogs, setFilteredBlogs] = useState([]);
+  const { blogs, loading, error } = useFetchBlogs();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState(null); // null = All Tags
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        // Manually listing markdown files (Since browser cannot list files in public/)
-        const files = [
-          'blog1.md', 'blog2.md', 'blog3.md', 'blog4.md', 'blog5.md',
-          'blog6.md', 'blog7.md', 'blog8.md', 'blog9.md', 'blog10.md'
-        ];
 
-        const blogData = await Promise.all(
-          files.map(async (file) => {
-            const res = await fetch(`/content/blog/${file}`);
-            const text = await res.text();
-            const { data } = matter(text);
-            return { ...data, slug: file.replace('.md', '') };
-          })
-        );
+  
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
-        const sortedBlogs = blogData.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setBlogs(sortedBlogs);
-        setFilteredBlogs(sortedBlogs);
-      } catch (error) {
-        console.error("Error fetching blog files:", error);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
+  const filteredBlogs = blogs.filter(blog =>
+    blog.title.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   // Get unique tags from blogs
   const allTags = [...new Set(blogs.flatMap(blog => blog.tags || []))];
-
-  // Filter blogs when tag or search query changes
-  useEffect(() => {
-    let filtered = blogs.filter(blog => 
-      blog.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    
-    if (selectedTag) {
-      filtered = filtered.filter(blog => blog.tags.includes(selectedTag));
-    }
-
-    setFilteredBlogs(filtered);
-  }, [searchQuery, selectedTag, blogs]);
 
   // Group Blogs by Year
   const blogsByYear = filteredBlogs.reduce((acc, blog) => {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useFetchBlogs from "../hooks/useFetchBlogs";
 import { Buffer } from "buffer";
 import matter from "gray-matter";
 import "./Home.css";
@@ -10,36 +11,12 @@ if (!window.Buffer) {
 }
 
 const Home = () => {
-  const [blogs, setBlogs] = useState([]);
+  const { blogs, loading, error } = useFetchBlogs();
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
 
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        const files = [
-          "blog1.md", "blog2.md", "blog3.md", "blog4.md", "blog5.md",
-          "blog6.md", "blog7.md", "blog8.md", "blog9.md", "blog10.md"
-        ];
-
-        const blogData = await Promise.all(
-          files.map(async (file) => {
-            const res = await fetch(`/content/blog/${file}`);
-            const text = await res.text();
-            const { data } = matter(text);
-            return { ...data, slug: file.replace(".md", "") };
-          })
-        );
-
-        const sortedBlogs = blogData.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setBlogs(sortedBlogs);
-      } catch (error) {
-        console.error("Error fetching blog files:", error);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>{error}</div>;
 
   const totalPages = Math.ceil(blogs.length / postsPerPage);
 
@@ -78,7 +55,7 @@ const Home = () => {
 
       {/* Blog Post Table */}
       <div className="blog-section">
-        <h3>Recent Blog Posts</h3>
+        <h3>Recent Blogs</h3>
         <table className="blog-table">
           <colgroup>
             <col style={{ width: "85%" }} />
