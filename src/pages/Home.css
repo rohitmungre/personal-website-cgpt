@@ -1,73 +1,72 @@
 .home-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    padding: 40px;
-    max-width: 1200px;
-    margin: auto;
-  }
-  
-  .home-image {
-    flex: none;
-    width: 250px;
-    text-align: center;
-    margin-right: 20px;
-  }
-  
-  .profile-pic {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
   }
   
   .home-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between image and text */
+  }
+  
+  .image-container {
+    flex: 0 0 150px; /* Fixed width for the image */
+  }
+  
+  .profile-image {
+    margin-top: 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-content {
     flex: 1;
+    font-size: 14px;
+    line-height: 1.4;
     text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
   }
   
-  .text-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+  .blog-section {
+    margin-top: 20px;
+    text-align: left;
+  }
+  
+  .blog-table {
+    table-layout: fixed; 
+    border: none;
     width: 100%;
-    flex-grow: 1;
-    justify-content: space-between;
+    border-collapse: collapse;
+    margin-top: 10px;
   }
   
-  .text-right {
-    flex: 1;
-    min-width: 250px;
-    max-width: 100%;
-    padding-left: 10px;
+  .blog-table th, .blog-table td {
+    border: none;
+    padding: 8px;
+    text-align: left;
   }
   
-  .text-below {
-    width: 100%; /* Ensure full width below the image */
-    padding-top: 10px;
-    flex-basis: 100%; /* Forces it to span full width */
-    display: block;
-    clear: both;
-  } 
-
-  @media (max-width: 768px) {
-    .home-container {
-      flex-direction: column;
-      align-items: center;
-    }
-    .home-image {
-      margin-right: 0;
-      margin-bottom: 20px;
-    }
-    .text-wrapper {
-      flex-direction: column;
-    }
-    .text-right {
-      max-width: 100%;
-      padding-left: 0;
-    }
+  .pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
   }
   

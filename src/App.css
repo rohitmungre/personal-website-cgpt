@@ -1,8 +1,19 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Makes sure the content stretches to full height */
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px;
+  margin-bottom: auto;
 }
 
 .logo {

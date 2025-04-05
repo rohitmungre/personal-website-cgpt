@@ -1,48 +1,83 @@
-import React from 'react';
-import './Home.css';
+import React, { useState } from "react";
+import "./Home.css";
 
-const paragraphs = [
-  "I am a quantitative software developer based in London, United Kingdom.",
-  "Currently I work at Onyx Capital Group, where I can be seen programming and sometimes crunching numbers.",
-  "I am a quantitative software developer based in London, United Kingdom.",
-  "I am a quantitative software developer based in London, United Kingdom.",
-  "I am a quantitative software developer based in London, United Kingdom.",
-  "I am a quantitative software developer based in London, United Kingdom.",
-  "Previously developed quantitative analytical/trading systems for an investment bank ",
-  "My interests span technology, trading strategies, music, art, and cooking.",
-  "I reached my peak weight (117Kgs) in Q3 2023, after which I have put conscious efforts into my health and have lost 31Kgs so far.",
-  "Travelled to 17 countries so far 🌍 🇬🇧 🇫🇷 🇩🇪 🇪🇸 🇮🇹 🇺🇸 🇯🇵 🇦🇺 🇨🇦 🇳🇱 🇧🇷 🇨🇭 🇸🇪 🇦🇹 🇳🇴 🇦🇷 🇸🇬.",
-  "Recently started to learn Rust and have been hooked onto it.",
-  "My home setup: GitHub",
-  "Social: Instagram | Facebook | GitHub | Twitter | Pinterest | Medium",
-];
+const Home = () => {
+  // Sample blog post data
+  const blogPosts = [
+    { id: 1, title: "Understanding Quantitative Trading", date: "March 10, 2025" },
+    { id: 2, title: "Building Scalable Analytical Systems", date: "March 5, 2025" },
+    { id: 3, title: "Music and Technology: An Intersection", date: "February 28, 2025" },
+    { id: 4, title: "Cooking as a Creative Process", date: "February 20, 2025" },
+    { id: 5, title: "Exploring Art Through Sketching", date: "February 15, 2025" },
+  ];
 
-function Home() {
-  const splitIndex = Math.floor(paragraphs.length / 3); // Adjust split dynamically for mirrored L shape
-  const textRight = paragraphs.slice(0, splitIndex + 1);
-  const textBelow = paragraphs.slice(splitIndex + 1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 5;
+  const totalPages = Math.ceil(blogPosts.length / postsPerPage);
 
   return (
     <div className="home-container">
-      <div className="home-image">
-        <img src="/images/dp.jpg" alt="Profile" className="profile-pic" />
-      </div>
       <div className="home-content">
-        <div className="text-wrapper">
-          <div className="text-right">
-            {textRight.map((text, index) => (
-              <p key={index}>{text}</p>
+        {/* Profile Image */}
+        <div className="image-container">
+          <img
+            src="/images/dp.jpg" // Direct reference from public folder
+            alt="Profile"
+            className="profile-image"
+          />
+        </div>
+
+        {/* Text Content */}
+        <div className="text-content">
+          <h3 className="welcome-title">Welcome!</h3>
+          <p>
+            I’m a <strong>quantitative software developer</strong> based in <strong>London, United Kingdom</strong>. 
+            This space is where I share my thoughts and insights through blog posts, covering a mix of topics—including 
+            <strong>technology, trading strategies, music, art, and cooking</strong>.
+          </p>
+          <p>
+            I have designed and built <strong>quantitative/analytical systems</strong> across various industries, including 
+            investment banking, hedge funds, commodity trading, and gaming.
+          </p>
+        </div>
+      </div>
+
+      {/* Blog Post Table */}
+      <div className="blog-section">
+        <h3>Recent Blog Posts</h3>
+        <table className="blog-table">
+        <colgroup>
+          <col style={{ width: "85%" }} />
+          <col style={{ width: "15%" }} />
+        </colgroup>
+          <tbody>
+            {blogPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map((post) => (
+              <tr key={post.id}>
+                <td>{post.title}</td>
+                <td>{post.date}</td>
+              </tr>
             ))}
-          </div>
-          <div className="text-below">
-            {textBelow.map((text, index) => (
-              <p key={index + splitIndex + 1}>{text}</p>
-            ))}
-          </div>
+          </tbody>
+        </table>
+        {/* Pagination Controls */}
+        <div className="pagination">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span> Page {currentPage} of {totalPages} </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Home;
