@@ -13,26 +13,27 @@ function Blogs() {
   const { blogs, loading, error } = useFetchBlogs();
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState(null); // null = All Tags
-
-
   
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
-  const filteredBlogs = blogs.filter(blog =>
-    blog.title.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  // Apply tag filtering as well
+  const filteredBlogs = blogs.filter(blog => {
+    const matchesSearch = blog.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesTag = selectedTag === null || (blog.tags && blog.tags.includes(selectedTag));
+    return matchesSearch && matchesTag;
+  });
 
-  // Get unique tags from blogs
-  const allTags = [...new Set(blogs.flatMap(blog => blog.tags || []))];
+   // Get unique tags from blogs
+   const allTags = [...new Set(blogs.flatMap(blog => blog.tags || []))];
 
-  // Group Blogs by Year
-  const blogsByYear = filteredBlogs.reduce((acc, blog) => {
-    const year = new Date(blog.date).getFullYear();
-    if (!acc[year]) acc[year] = [];
-    acc[year].push(blog);
-    return acc;
-  }, {});
+   // Group Blogs by Year
+   const blogsByYear = filteredBlogs.reduce((acc, blog) => {
+     const year = new Date(blog.date).getFullYear();
+     if (!acc[year]) acc[year] = [];
+     acc[year].push(blog);
+     return acc;
+   }, {});
 
   return (
     <div className="blogs-container">

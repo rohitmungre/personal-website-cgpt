@@ -55,7 +55,7 @@
   }
   
   .nav-container a:hover {
-    text-decoration: underline;
+    color: #007bff; /* New color on hover */
   }
 
 .nav-icon {
