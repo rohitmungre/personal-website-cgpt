@@ -1,19 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Buffer } from "buffer";
+import matter from "gray-matter";
 import "./Home.css";
 
-const Home = () => {
-  // Sample blog post data
-  const blogPosts = [
-    { id: 1, title: "Understanding Quantitative Trading", date: "March 10, 2025" },
-    { id: 2, title: "Building Scalable Analytical Systems", date: "March 5, 2025" },
-    { id: 3, title: "Music and Technology: An Intersection", date: "February 28, 2025" },
-    { id: 4, title: "Cooking as a Creative Process", date: "February 20, 2025" },
-    { id: 5, title: "Exploring Art Through Sketching", date: "February 15, 2025" },
-  ];
+// Ensure Buffer is available in the browser
+if (!window.Buffer) {
+  window.Buffer = Buffer;
+}
 
+const Home = () => {
+  const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 5;
-  const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const files = [
+          "blog1.md", "blog2.md", "blog3.md", "blog4.md", "blog5.md",
+          "blog6.md", "blog7.md", "blog8.md", "blog9.md", "blog10.md"
+        ];
+
+        const blogData = await Promise.all(
+          files.map(async (file) => {
+            const res = await fetch(`/content/blog/${file}`);
+            const text = await res.text();
+            const { data } = matter(text);
+            return { ...data, slug: file.replace(".md", "") };
+          })
+        );
+
+        const sortedBlogs = blogData.sort((a, b) => new Date(b.date) - new Date(a.date));
+        setBlogs(sortedBlogs);
+      } catch (error) {
+        console.error("Error fetching blog files:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  const totalPages = Math.ceil(blogs.length / postsPerPage);
+
+  // Slice blogs based on currentPage and postsPerPage
+  const displayedBlogs = blogs.slice(
+    (currentPage - 1) * postsPerPage,
+    currentPage * postsPerPage
+  );
 
   return (
     <div className="home-container">
@@ -21,7 +55,7 @@ const Home = () => {
         {/* Profile Image */}
         <div className="image-container">
           <img
-            src="/images/dp.jpg" // Direct reference from public folder
+            src="/images/dp.jpg"
             alt="Profile"
             className="profile-image"
           />
@@ -46,30 +80,37 @@ const Home = () => {
       <div className="blog-section">
         <h3>Recent Blog Posts</h3>
         <table className="blog-table">
-        <colgroup>
-          <col style={{ width: "85%" }} />
-          <col style={{ width: "15%" }} />
-        </colgroup>
+          <colgroup>
+            <col style={{ width: "85%" }} />
+            <col style={{ width: "15%" }} />
+          </colgroup>
           <tbody>
-            {blogPosts.slice((currentPage - 1) * postsPerPage, currentPage * postsPerPage).map((post) => (
-              <tr key={post.id}>
-                <td>{post.title}</td>
-                <td>{post.date}</td>
+            {displayedBlogs.map((post, index) => (
+              <tr key={index}>
+                <td>
+                  <Link to={`/blog/${post.slug}`} className="blog-link">
+                    {post.title}
+                  </Link>
+                </td>
+                <td>
+                  {post.date ? new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : "No Date"}
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
+        
         {/* Pagination Controls */}
         <div className="pagination">
           <button
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
           >
             Previous
           </button>
           <span> Page {currentPage} of {totalPages} </span>
           <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
           >
             Next

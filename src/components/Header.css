@@ -57,3 +57,14 @@
   .nav-container a:hover {
     text-decoration: underline;
   }
+
+.nav-icon {
+    transition: transform 0.3s; /* Smooth transition for rotation */
+    cursor: pointer;
+    filter: brightness(0.7); 
+}
+
+.nav-icon:hover {
+    transform: rotate(360deg); /* Full rotation on hover */
+    filter: brightness(1);
+}
