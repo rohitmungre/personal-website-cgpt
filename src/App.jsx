@@ -4,7 +4,7 @@ import Home from './pages/Home.jsx';
 import Blogs from './pages/Blogs.jsx';
 import BlogPost from './pages/BlogPost.jsx';
 import About from './pages/About.jsx';
-import { MantineProvider } from '@mantine/core';
+// import { MantineProvider } from '@mantine/core';
 import Travel from './pages/Travel.jsx';
 import Photos from './pages/Photos.jsx';
 import Art from './pages/Art.jsx';
@@ -20,7 +20,7 @@ import './App.css';
 
 function App() {
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    // <MantineProvider withGlobalStyles withNormalizeCSS>
       <ThemeProvider>
         <Router>
           <div className="app">
@@ -45,7 +45,7 @@ function App() {
           </div>
         </Router>
       </ThemeProvider>
-    </MantineProvider>
+    // </MantineProvider>
   );
 }
 

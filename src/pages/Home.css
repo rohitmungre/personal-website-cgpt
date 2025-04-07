@@ -42,10 +42,10 @@
     border-collapse: collapse;
     margin-top: 10px;
   }
-  
+
   .blog-table th, .blog-table td {
     border: none;
-    padding: 8px;
+    padding: 2px;
     text-align: left;
   }
   

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useFetchBlogs from "../hooks/useFetchBlogs";
 import { Buffer } from "buffer";
+import { FaTwitter, FaLinkedin, FaGithub, FaInstagram, FaPinterest } from 'react-icons/fa';
 import matter from "gray-matter";
 import "./Home.css";
 
@@ -36,20 +37,35 @@ const Home = () => {
             alt="Profile"
             className="profile-image"
           />
+
+          {/* Social Media Icons */}
+          <div className="social-icons">
+            <a href="https://twitter.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaTwitter size={30} color="#1DA1F2" style={{ margin: '15px 5px' }} /></a>
+            <a href="https://linkedin.com/in/rohitmungre" target="_blank" rel="noopener noreferrer"><FaLinkedin size={30} color="#0A66C2" style={{ margin: '15px 5px' }} /></a>
+            <a href="https://github.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaGithub size={30} color="#333" style={{ margin: '15px 5px' }} /></a>
+            <a href="https://pinterest.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaPinterest size={30} color="#E60023" style={{ margin: '15px 5px' }} /></a>
+          </div>
         </div>
 
         {/* Text Content */}
         <div className="text-content">
           <h3 className="welcome-title">Hi, there!</h3>
           <p>
-            I’m a <strong>quantitative software developer</strong> based in <strong>London, United Kingdom</strong>. 
-            This space is where I share my thoughts and insights through blog posts, covering a mix of personal and professional topics — including 
-            <strong> technology, business, investing, music, art, food and life</strong>.
+            I’m a quantitative software developer based in London, United Kingdom. 
+            <br />
+            This space is where I share my thoughts, insights and work through blog posts covering a range of topics that interest me — including 
+            technology, business, investing, art, and life.
           </p>
           <p>
-            I have designed and built <strong>quantitative/analytical systems</strong> across various industries, including 
-            investment banking, hedge funds, commodity trading, and gaming.
+            Over the past 13 years, I have designed and built quantitative/analytical systems across various industries, including 
+            investment banking, hedge funds, commodity trading, and gaming. I also like to keep upto date with latest technological, business and economical developments.
           </p>
+          <p>
+            Outside of work, I’m passionate about fitness, cooking, sports, music, and art. 
+            I started taking my health seriously in late 2023 and have lost 31 kilograms so far. 
+            I’m also trained in Indian classical music — I don’t sing as much these days, 
+            but I still love exploring different genres of music. 
+            </p>
         </div>
       </div>
 
@@ -63,7 +79,7 @@ const Home = () => {
           </colgroup>
           <tbody>
             {displayedBlogs.map((post, index) => (
-              <tr key={index}>
+              <tr key={index} style={{ marginBottom: '50px' }}>
                 <td>
                   <Link to={`/blog/${post.slug}`} className="blog-link">
                     {post.title}
