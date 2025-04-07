@@ -36,7 +36,7 @@ function Header() {
             <Link to="/travel" className="nav-icon">
                 <ExploreIcon />
             </Link>            
-            <Link to="/travel" className="nav-icon">
+            <Link to="/labs" className="nav-icon">
                 <ScienceIcon />
             </Link>            
         </div>
