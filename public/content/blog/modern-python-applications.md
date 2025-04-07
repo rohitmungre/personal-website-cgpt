@@ -1,7 +1,7 @@
 ---
 
-title: "Building a Personal Website with React & Vite"
-date: "2025-01-08"
+title: "Modern python applications"
+date: "2025-01-09"
 tags: [React, Vite, Web Development]
 ---
 

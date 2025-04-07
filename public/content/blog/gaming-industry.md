@@ -1,7 +1,7 @@
 ---
 
-title: "Getting Started with Pinterest for Inspiration"
-date: "2023-02-15"
+title: "Gaming industry: thoughts"
+date: "2017-07-02"
 tags: [Pinterest, Creativity, Social Media]
 ---
 

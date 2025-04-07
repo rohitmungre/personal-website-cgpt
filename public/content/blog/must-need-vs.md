@@ -1,7 +1,6 @@
 ---
-
-title: "Mastering Python Decorators"
-date: "2025-03-12"
+title: "Must need v/s nice to have"
+date: "2015-06-07"
 tags: [Python, Programming, Advanced]
 ---
 

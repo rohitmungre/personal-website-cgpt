@@ -1,6 +1,6 @@
 ---
-title: "The Future of Web Development"
-date: "2025-03-15"
+title: "Zero to one: Book review"
+date: "2015-05-27"
 tags: [Web Development, JavaScript, React]
 ---
 

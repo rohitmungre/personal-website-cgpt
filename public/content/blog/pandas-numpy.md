@@ -1,6 +1,6 @@
 ---
-title: "Exploring Data Visualization with Markdown"
-date: "2025-03-17"
+title: "Pandas: A primer"
+date: "2021-03-17"
 tags: ["Visualization", "Markdown", "Graphs"]
 ---
 
