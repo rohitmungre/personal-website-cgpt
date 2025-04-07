@@ -1,7 +1,6 @@
 ---
-
-title: "Async, multithreading, multiprocessing"
-date: "2024-02-20"
+title: "Websockets & Rest APIs"
+date: "2024-06-12"
 tags: ["Python"]
 ---
 

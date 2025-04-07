@@ -12,10 +12,12 @@
     "modern-python-applications.md",
     "why-rust.md",
     "weight-loss.md",
-    "keyboards.md",
     "oil-markets.md",
     "gaming-industry.md",
     "async.md",
-    "databases.md"
+    "databases.md",
+    "redis.md",
+    "kafka.md",
+    "websockets.md"
   ]
   
