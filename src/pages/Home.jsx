@@ -42,7 +42,9 @@ const Home = () => {
           <div className="social-icons">
             <a href="https://twitter.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaTwitter size={30} color="#1DA1F2" style={{ margin: '15px 5px' }} /></a>
             <a href="https://linkedin.com/in/rohitmungre" target="_blank" rel="noopener noreferrer"><FaLinkedin size={30} color="#0A66C2" style={{ margin: '15px 5px' }} /></a>
-            <a href="https://github.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaGithub size={30} color="#333" style={{ margin: '15px 5px' }} /></a>
+            <a href="https://github.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaGithub size={30} 
+            color={document.body.getAttribute('data-theme') === 'dark' ? '#f0f0f0' : '#333'} 
+            style={{ margin: '15px 5px' }} /></a>
             <a href="https://pinterest.com/rohitmungre" target="_blank" rel="noopener noreferrer"><FaPinterest size={30} color="#E60023" style={{ margin: '15px 5px' }} /></a>
           </div>
         </div>
