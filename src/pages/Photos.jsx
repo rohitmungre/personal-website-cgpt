@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import usePhotos from '../hooks/usePhotos';
+import usePhotos from '../hooks/usePhotos'; // Adjust the path as needed
 import './Photos.css';
 
 function Photos() {
@@ -12,7 +12,12 @@ function Photos() {
         {photos.map((photo, index) => (
           <div key={index} className="photo-item">
             <Link to={`/photo/${photo.filename}`}>
-              <img src={`/images/${photo.filename}`} alt={photo.title} />
+              <img 
+                src={photo.thumbnail} 
+                alt={photo.title} 
+                loading="lazy" 
+              />
+              <p>{photo.title}</p>
             </Link>
           </div>
         ))}
