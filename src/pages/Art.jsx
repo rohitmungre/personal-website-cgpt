@@ -1,22 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import './Photos.css';
+import './Art.css';
 
-function Photos() {
+function Art() {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
     // Manually listing images (since frontend cannot auto-detect public/ files)
     const images = [
-      { filename: "9.jpg", title: "Sunset Over the Beach" },
-      { filename: "11.jpg", title: "Mountain Adventure" },
-      { filename: "7.jpg", title: "City Skyline at Night" },
-      { filename: "6.jpg", title: "Lush Green Forest" },
-      { filename: "5.jpg", title: "Snowy Mountains" },
-      { filename: "4.jpg", title: "Calm Lake Reflection" },
-      { filename: "3.jpg", title: "Autumn Leaves" },
-      { filename: "10.jpg", title: "Desert Dunes" },
-      { filename: "1.jpg", title: "Ocean Waves" }
+      { filename: "a1.jpg", title: "Sunset Over the Beach" },
+      { filename: "a2.jpg", title: "Sunset Over the Beach" },
+      { filename: "a3.jpg", title: "Sunset Over the Beach" },
+      { filename: "a4.jpg", title: "Sunset Over the Beach" },
     ];
 
     setPhotos(images);
@@ -37,4 +32,4 @@ function Photos() {
   );
 }
 
-export default Photos;
+export default Art;

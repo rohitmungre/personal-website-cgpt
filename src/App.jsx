@@ -6,6 +6,7 @@ import BlogPost from './pages/BlogPost.jsx';
 import About from './pages/About.jsx';
 import Travel from './pages/Travel.jsx';
 import Photos from './pages/Photos.jsx';
+import Art from './pages/Art.jsx';
 import PhotoPage from './pages/PhotoPage.jsx';
 import Projects from './pages/Projects.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
@@ -23,6 +24,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/travel" element={<Travel />} />
+              <Route path="/art" element={<Art />} />
               <Route path="/photos" element={<Photos />} />
               <Route path="/photo/:filename" element={<PhotoPage />} />
               <Route path="/blog" element={<Blogs />} />
