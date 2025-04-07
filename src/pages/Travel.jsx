@@ -1,40 +1,42 @@
-import React, { useEffect, useRef } from 'react';
-import Globe from 'react-globe.gl';
-import './Travel.css';
+import React, { useCallback, useRef } from 'react';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+
+const mapContainerStyle = {
+  width: '100%',
+  height: '500px'
+};
+
+const center = {
+  lat: 20.5937, // Center of the world map
+  lng: 78.9629
+};
+
+const places = [
+  { name: "London", position: { lat: 51.5074, lng: -0.1278 } },
+  { name: "Paris", position: { lat: 48.8566, lng: 2.3522 } },
+  { name: "New York", position: { lat: 40.7128, lng: -74.0060 } }
+];
 
 const Travel = () => {
-  const globeEl = useRef();
+  const mapRef = useRef(null);
 
-  const visitedPlaces = [
-    { name: 'London', lat: 51.5074, lng: -0.1278 },
-    { name: 'New York', lat: 40.7128, lng: -74.0060 },
-    { name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
-    { name: 'Paris', lat: 48.8566, lng: 2.3522 },
-    { name: 'Sydney', lat: -33.8688, lng: 151.2093 }
-  ];
-
-  useEffect(() => {
-    if (globeEl.current) {
-      globeEl.current.controls().autoRotate = true;
-      globeEl.current.controls().autoRotateSpeed = 0.6;
-    }
+  const onLoad = useCallback((map) => {
+    mapRef.current = map;
   }, []);
 
   return (
-    <div className="travel-container">
-      <Globe
-        ref={globeEl}
-        backgroundColor="rgba(0, 0, 0, 0)" /* Makes the background transparent */
-        globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-        pointsData={visitedPlaces}
-        pointLat="lat"
-        pointLng="lng"
-        pointLabel="name"
-        pointColor={() => 'red'}
-        pointAltitude={0.03}
-        pointRadius={0.1}
-      />
-    </div>
+    <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
+      <GoogleMap
+        mapContainerStyle={mapContainerStyle}
+        center={center}
+        zoom={2}
+        onLoad={onLoad}
+      >
+        {places.map((place, index) => (
+          <Marker key={index} position={place.position} title={place.name} />
+        ))}
+      </GoogleMap>
+    </LoadScript>
   );
 };
 

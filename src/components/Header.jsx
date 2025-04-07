@@ -30,7 +30,7 @@ function Header() {
             <Link to="/photos" className="nav-icon">
                 <CollectionsIcon />
             </Link>            
-            <Link to="/fitness" className="nav-icon">
+            {/* <Link to="/fitness" className="nav-icon">
                 <FitnessCenterIcon />
             </Link>            
             <Link to="/travel" className="nav-icon">
@@ -38,7 +38,7 @@ function Header() {
             </Link>            
             <Link to="/labs" className="nav-icon">
                 <ScienceIcon />
-            </Link>            
+            </Link>             */}
         </div>
         <div className="nav-right">
           <Link to="/blog">Blog</Link>
