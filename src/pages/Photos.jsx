@@ -1,26 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import usePhotos from '../hooks/usePhotos';
 import './Photos.css';
 
 function Photos() {
-  const [photos, setPhotos] = useState([]);
-
-  useEffect(() => {
-    // Manually listing images (since frontend cannot auto-detect public/ files)
-    const images = [
-      { filename: "9.jpg", title: "Sunset Over the Beach" },
-      { filename: "11.jpg", title: "Mountain Adventure" },
-      { filename: "7.jpg", title: "City Skyline at Night" },
-      { filename: "6.jpg", title: "Lush Green Forest" },
-      { filename: "5.jpg", title: "Snowy Mountains" },
-      { filename: "4.jpg", title: "Calm Lake Reflection" },
-      { filename: "3.jpg", title: "Autumn Leaves" },
-      { filename: "10.jpg", title: "Desert Dunes" },
-      { filename: "1.jpg", title: "Ocean Waves" }
-    ];
-
-    setPhotos(images);
-  }, []);
+  const photos = usePhotos();
 
   return (
     <div className="photos-container">
