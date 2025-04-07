@@ -1,0 +1,22 @@
+[
+    {
+      "filename": "a1.jpg",
+      "title": "Sunset Over the Beach",
+      "description": "A stunning sunset over the beach with golden skies."
+    },
+    {
+      "filename": "a2.jpg",
+      "title": "Mountain Adventure",
+      "description": "A breathtaking mountain adventure in the Alps."
+    },
+    {
+      "filename": "a3.jpg",
+      "title": "City Skyline at Night",
+      "description": "A stunning city skyline under a starry night."
+    },
+    {
+      "filename": "a4.jpg",
+      "title": "Ocean Waves",
+      "description": "Powerful ocean waves crashing against the shore."
+    }
+  ]

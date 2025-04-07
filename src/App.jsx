@@ -8,6 +8,7 @@ import { MantineProvider } from '@mantine/core';
 import Travel from './pages/Travel.jsx';
 import Photos from './pages/Photos.jsx';
 import Art from './pages/Art.jsx';
+import ArtPage from './pages/ArtPage.jsx';
 import Labs from './pages/Labs.jsx';
 import PhotoPage from './pages/PhotoPage.jsx';
 import Projects from './pages/Projects.jsx';
@@ -29,6 +30,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/travel" element={<Travel />} />
                 <Route path="/art" element={<Art />} />
+                <Route path="/art/:filename" element={<ArtPage />} />
                 <Route path="/photos" element={<Photos />} />
                 <Route path="/photo/:filename" element={<PhotoPage />} />
                 <Route path="/blog" element={<Blogs />} />
