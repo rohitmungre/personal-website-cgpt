@@ -1,16 +1,25 @@
 import { useState, useEffect } from 'react';
 
 const useArt = () => {
-  const [photos, setPhotos] = useState([]);
+  const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
     fetch('/art/manifest.json')
       .then(response => response.json())
-      .then(data => setPhotos(data))
+      .then(data => {
+        // Only load thumbnail paths in the initial fetch
+        const updatedArtworks = data.map(art => ({
+          filename: art.filename,
+          title: art.title,
+          description: art.description,
+          thumbnail: `/art/thumbnails/${art.filename}`
+        }));
+        setArtworks(updatedArtworks);
+      })
       .catch(error => console.error('Error fetching manifest.json:', error));
   }, []);
 
-  return photos;
+  return artworks;
 };
 
 export default useArt;

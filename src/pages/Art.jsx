@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import useArt from '../hooks/useArt';
 import './Art.css';
 
 function Art() {
-  const photos = useArt();
+  const artworks = useArt();
 
   return (
     <div className="photos-container">
       <div className="photo-grid">
-        {photos.map((photo, index) => (
+        {artworks.map((art, index) => (
           <div key={index} className="photo-item">
-            <Link to={`/art/${photo.filename}`}>
-              <img src={`/art/${photo.filename}`} alt={photo.title} />
+            <Link to={`/art/${art.filename}`}>
+              <img 
+                src={art.thumbnail} 
+                alt={art.title} 
+                loading="lazy" 
+              />
+              <p>{art.title}</p>
             </Link>
           </div>
         ))}

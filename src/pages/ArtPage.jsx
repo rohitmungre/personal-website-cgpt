@@ -3,20 +3,29 @@ import { useParams, Link } from 'react-router-dom';
 import useArt from '../hooks/useArt'; // Adjust path accordingly
 import './ArtPage.css';
 
-function PhotoPage() {
+function ArtPage() {
   const { filename } = useParams();
-  const photos = useArt();
-  const photo = photos.find(p => p.filename === filename);
+  const artworks = useArt();
+  const art = artworks.find(a => a.filename === filename);
+
+  if (!art) {
+    return <div>Artwork not found</div>;
+  }
 
   return (
     <div className="photo-page-container">
       <div className="photo-display">
-        <img src={`/art/${filename}`} alt={photo?.title || "Photo"} />
-        <p className="photo-description">{photo?.description || "A beautiful moment captured."}</p>
+        <img 
+          src={`/art/${art.filename}`} 
+          alt={art.title || "Artwork"} 
+          loading="lazy" 
+          className="full-image"
+        />
+        <p className="photo-description">{art.description || "A beautiful piece of art."}</p>
       </div>
       <Link to="/art" className="back-button">Back to Art Gallery</Link>
     </div>
   );
 }
 
-export default PhotoPage;
+export default ArtPage;
