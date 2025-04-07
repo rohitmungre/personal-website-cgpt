@@ -64,7 +64,32 @@
     filter: brightness(0.7); 
 }
 
-.nav-icon:hover {
-    transform: rotate(360deg); /* Full rotation on hover */
-    filter: brightness(1);
+/* .nav-icon:hover {
+  animation: wobble 0.5s;
 }
+
+@keyframes wobble {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(-5deg); }
+  75% { transform: rotate(3deg); }
+} */
+
+.nav-icon:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+
+/* .nav-icon:hover {
+  animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+} */
+
+/* .nav-icon:hover {
+    transform: rotate(360deg);
+    filter: brightness(1);
+} */

@@ -4,6 +4,7 @@ import Home from './pages/Home.jsx';
 import Blogs from './pages/Blogs.jsx';
 import BlogPost from './pages/BlogPost.jsx';
 import About from './pages/About.jsx';
+import { MantineProvider } from '@mantine/core';
 import Travel from './pages/Travel.jsx';
 import Photos from './pages/Photos.jsx';
 import Art from './pages/Art.jsx';
@@ -16,27 +17,29 @@ import './App.css';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Router>
-        <div className="app">
-          <Header />
-          <main>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/travel" element={<Travel />} />
-              <Route path="/art" element={<Art />} />
-              <Route path="/photos" element={<Photos />} />
-              <Route path="/photo/:filename" element={<PhotoPage />} />
-              <Route path="/blog" element={<Blogs />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
-    </ThemeProvider>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <ThemeProvider>
+        <Router>
+          <div className="app">
+            <Header />
+            <main>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/travel" element={<Travel />} />
+                <Route path="/art" element={<Art />} />
+                <Route path="/photos" element={<Photos />} />
+                <Route path="/photo/:filename" element={<PhotoPage />} />
+                <Route path="/blog" element={<Blogs />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </main>
+            <Footer />
+          </div>
+        </Router>
+      </ThemeProvider>
+    </MantineProvider>
   );
 }
 
