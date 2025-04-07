@@ -1,5 +1,6 @@
 import React from 'react';
-import { Card, Text, Container, Title, List, ListItem } from '@mantine/core';
+import { Card, Text, Container, Title, Timeline } from '@mantine/core';
+import { IconBriefcase, IconCode, IconCloud } from '@tabler/icons-react';
 
 const About = () => {
   return (
@@ -13,20 +14,22 @@ const About = () => {
 
       <Card shadow="sm" padding="lg" radius="md" withBorder mb="xl">
         <Title order={2} mb="sm">Professional Journey</Title>
-        <List spacing="sm" size="md" withPadding>
-          <ListItem>
-            <strong>2020 - Present: Senior Software Engineer at TechCorp Inc.</strong>
+        <Timeline active={2} bulletSize={30} lineWidth={4}>
+          <Timeline.Item title="Senior Software Engineer at TechCorp Inc." bullet={<IconCloud size={16} />}>            
+            <Text color="dimmed" size="sm">2020 - Present</Text>
             <Text>Leading a team of developers to build cloud-native applications, optimizing performance, and implementing best practices for DevOps and CI/CD.</Text>
-          </ListItem>
-          <ListItem>
-            <strong>2016 - 2020: Software Engineer at WebSolutions Ltd.</strong>
+          </Timeline.Item>
+
+          <Timeline.Item title="Software Engineer at WebSolutions Ltd." bullet={<IconCode size={16} />}>            
+            <Text color="dimmed" size="sm">2016 - 2020</Text>
             <Text>Worked on various web applications using React, Node.js, and GraphQL. Designed scalable RESTful APIs and contributed to open-source projects.</Text>
-          </ListItem>
-          <ListItem>
-            <strong>2012 - 2016: Junior Developer at CodeCraft</strong>
+          </Timeline.Item>
+
+          <Timeline.Item title="Junior Developer at CodeCraft" bullet={<IconBriefcase size={16} />}>            
+            <Text color="dimmed" size="sm">2012 - 2016</Text>
             <Text>Developed internal tools and applications using Python and Django. Collaborated with senior developers to enhance backend systems and improve data processing workflows.</Text>
-          </ListItem>
-        </List>
+          </Timeline.Item>
+        </Timeline>
       </Card>
 
       <Card shadow="sm" padding="lg" radius="md" withBorder>

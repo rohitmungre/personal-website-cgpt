@@ -10,6 +10,7 @@ import Photos from './pages/Photos.jsx';
 import Art from './pages/Art.jsx';
 import PhotoPage from './pages/PhotoPage.jsx';
 import Projects from './pages/Projects.jsx';
+import Fitness from './pages/Fitness.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
@@ -33,6 +34,7 @@ function App() {
                 <Route path="/blog/:slug" element={<BlogPost />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/fitness" element={<Fitness />} />
               </Routes>
             </main>
             <Footer />
