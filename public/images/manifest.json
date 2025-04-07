@@ -1,13 +1,23 @@
 [
     {
-      "filename": "9.jpg",
+      "filename": "thames-kayak.jpg",
       "title": "Sunset Over the Beach",
       "description": "A stunning sunset over the beach with golden skies."
     },
     {
+        "filename": "9.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
+      },
+      {
       "filename": "11.jpg",
       "title": "Mountain Adventure",
       "description": "A breathtaking mountain adventure in the Alps."
+    },
+    {
+        "filename": "seven-sisters.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
     },
     {
       "filename": "7.jpg",
@@ -18,6 +28,11 @@
       "filename": "6.jpg",
       "title": "Lush Green Forest",
       "description": "Lush green forest filled with wildlife and nature sounds."
+    },
+    {
+        "filename": "paris-sunset.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
     },
     {
       "filename": "5.jpg",
@@ -40,8 +55,23 @@
       "description": "Golden desert dunes stretching as far as the eye can see."
     },
     {
+        "filename": "eiffel.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
+    },
+    {
+        "filename": "florence.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
+    },
+    {
       "filename": "1.jpg",
       "title": "Ocean Waves",
       "description": "Powerful ocean waves crashing against the shore."
+    },
+    {
+        "filename": "sunset-new-zealand.jpg",
+        "title": "Sunset Over the Beach",
+        "description": "A stunning sunset over the beach with golden skies."
     }
   ]
