@@ -4,9 +4,14 @@ import useArt from '../hooks/useArt'; // Adjust path accordingly
 import './ArtPage.css';
 
 function ArtPage() {
-  const { filename } = useParams();
   const artworks = useArt();
+  const { filename } = useParams();
   const art = artworks.find(a => a.filename === filename);
+  const baseUrl = import.meta.env.BASE_URL || './';
+  
+  if (!artworks.length) {
+    return <div>Loading artwork...</div>;
+  }
 
   if (!art) {
     return <div>Artwork not found</div>;
@@ -16,7 +21,7 @@ function ArtPage() {
     <div className="photo-page-container">
       <div className="photo-display">
         <img 
-          src={`/art/${art.filename}`} 
+          src={`${baseUrl}art/${art.filename}`} 
           alt={art.title || "Artwork"} 
           loading="lazy" 
           className="full-image"

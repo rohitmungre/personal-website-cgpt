@@ -7,6 +7,7 @@ function PhotoPage() {
   const { filename } = useParams();
   const photos = usePhotos();
   const photo = photos.find(p => p.filename === filename);
+  const baseUrl = import.meta.env.BASE_URL || './';
 
   if (!photo) {
     return <div>Photo not found</div>;
@@ -16,7 +17,7 @@ function PhotoPage() {
     <div className="photo-page-container">
       <div className="photo-display">
         <img 
-          src={`/images/${photo.filename}`}  // Fixed URL string interpolation
+          src={`${baseUrl}images/${photo.filename}`}  // Fixed URL string interpolation
           alt={photo.title} 
           className="full-image" 
           loading="lazy" 

@@ -4,15 +4,15 @@ const useArt = () => {
   const [artworks, setArtworks] = useState([]);
 
   useEffect(() => {
-    fetch('/art/manifest.json')
+    const baseUrl = import.meta.env.BASE_URL || './'; // works with Vite
+    fetch(`${baseUrl}art/manifest.json`)
       .then(response => response.json())
       .then(data => {
-        // Only load thumbnail paths in the initial fetch
         const updatedArtworks = data.map(art => ({
           filename: art.filename,
           title: art.title,
           description: art.description,
-          thumbnail: `/art/thumbnails/${art.filename}`
+          thumbnail: `${baseUrl}art/thumbnails/${art.filename}`
         }));
         setArtworks(updatedArtworks);
       })

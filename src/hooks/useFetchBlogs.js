@@ -13,15 +13,17 @@ const useFetchBlogs = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const baseUrl = import.meta.env.BASE_URL || './';
+
     const fetchBlogs = async () => {
       try {
         // Fetch the manifest file to get the list of .md files
-        const manifestRes = await fetch('/content/blog/manifest.json');
+        const manifestRes = await fetch(`${baseUrl}content/blog/manifest.json`);
         const files = await manifestRes.json();
 
         const blogData = await Promise.all(
           files.map(async (file) => {
-            const res = await fetch(`/content/blog/${file}`);
+            const res = await fetch(`${baseUrl}content/blog/${file}`);
             const text = await res.text();
             const { data } = matter(text);
             return { ...data, slug: file.replace(".md", "") };

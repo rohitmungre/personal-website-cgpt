@@ -27,13 +27,15 @@ const Home = () => {
     currentPage * postsPerPage
   );
 
+  const baseUrl = import.meta.env.BASE_URL || './';
+  
   return (
     <div className="home-container">
       <div className="home-content">
         {/* Profile Image */}
         <div className="image-container">
           <img
-            src="/images/dp.jpg"
+            src={`${import.meta.env.BASE_URL || './'}images/dp.jpg`}
             alt="Profile"
             className="profile-image"
           />
